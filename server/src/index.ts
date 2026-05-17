@@ -11,10 +11,18 @@ const app = express();
 const PORT = process.env.PORT ?? 5000;
 
 connectDB();
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174', process.env.CLIENT_URL ?? 'http://localhost:5173'],
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'https://gigflow-bice.vercel.app',
+    'https://gigflow-git-main-aaniya22s-projects.vercel.app',
+    process.env.CLIENT_URL ?? 'http://localhost:5173',
+  ],
   credentials: true,
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
